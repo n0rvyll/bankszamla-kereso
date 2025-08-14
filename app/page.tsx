@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { BuildingLibraryIcon, IdentificationIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { bankLogos } from "@/components/logos";
+import ArticleTeasers from "@/components/ArticleTeasers";
+import SiteLogo from "@/components/SiteLogo";
 
 const AdUnit = dynamic(() => import("@/components/AdUnit"), { ssr: false });
 
@@ -53,6 +55,13 @@ export default function HomePage() {
     return null;
   }
 };
+
+const resetHome = () => {
+    setPrefix("");
+    setRes(null);
+    setLoading(false);
+    setCopied(null);
+  };
   
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
@@ -120,9 +129,13 @@ export default function HomePage() {
     <main className="flex flex-col gap-6">
       {/* Kereső kártya */}
       <section className={`${card} p-4 sm:p-6`}>
+        <div className="flex items-center gap-3 mb-2">
+          <SiteLogo size={28} onHomeClick={resetHome}/>
+
         <h1 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
           Bankszámla kereső
         </h1>
+        </div>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
           Ezen az oldalon a bankszámla első 8 számjegye alapján tudsz bankot keresni.
         </p>
@@ -389,6 +402,7 @@ export default function HomePage() {
       ) : null}
 
       <AdUnit />
+      <ArticleTeasers />
     </main>
   );
 }
