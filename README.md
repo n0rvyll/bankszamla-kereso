@@ -24,6 +24,10 @@ naprakészen vannak betöltve.
   - Morph animáció a keresés gombon
 - 💰 **Elhelyezhető AdSense hirdetési kód**
   - AdUnit.tsx oldalon helyezheted el a saját AdSense adataidat (ca-pub-XXXXXXXXXXXXXXXX)
+- 📰 **Cikkajánló a kereső és találati box alatt**
+  - route.ts-ben tudod szerkeszteni az RSS forrásokat. Jelenleg ami bent van: hvg.hu, 444.hu, gsplus.hu, telex.hu, 24.hu. Szintén ebben a fájlban tudod állítani a revalidate értéket, jelenleg alapértelmezett 480 (8 perc).
+- ❗ **Logo**
+  - Saját logót tudsz elhelyenzni, alapértelmezett helye a logónak: public/logos/logo.svg
 
 ## Technológiai háttér
 

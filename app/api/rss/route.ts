@@ -162,7 +162,7 @@ export async function GET(req: Request) {
         const source = feed.title || new URL(feedUrl).host;
 
         // Először a feedből próbálunk képet (gyors)
-        const items0: OutItem[] = (feed.items || []).slice(0, 10).map((i) => ({
+        const items0: OutItem[] = (feed.items || []).slice(0, 10).map((i: FeedItem) => ({
           title: i.title || "(nincs cím)",
           url: absolutize(i.link, base) || feedUrl,
           source,
