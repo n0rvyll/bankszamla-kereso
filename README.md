@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bankszámlaszám kereső – MNB adatokkal
 
-## Getting Started
+![Bankszámlaszám kereső – főoldal](./public/readme/01.jpg)
+![Bankszámlaszám kereső találati oldala](./public/readme/03.jpg)
 
-First, run the development server:
+Ez az alkalmazás lehetővé teszi, hogy a **bankszámlaszám első 8 számjegye** alapján
+megtudd, melyik banknál és melyik fióknál vezetik a számlát.  
+Az adatok a **Magyar Nemzeti Bank (MNB) szűkített hitelesítő táblájából** származnak, és
+naprakészen vannak betöltve.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funkciók
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔍 **8 számjegyes keresés** – Add meg a számlaszám első 8 számjegyét (bankkód + fiókkód), és a rendszer megmondja:
+  - Bank neve
+  - Fiók neve
+  - Cím
+  - BIC / SWIFT kód
+- 📌 **Találati részletek**
+  - Bank logó (ha ismert)
+  - Másolás gomb BIC-hez és címhez
+  - „Megnyitás térképen” link a címhez
+- 💡 **Részleges találatok (javaslatok)** – Ha nincs pontos egyezés, a bankkód alapján felajánl hasonló fiókokat.
+- 📆 **Utolsó frissítés ideje** – Minden keresésnél látod, mikor frissültek az adatok.
+- 📱 **Reszponzív és modern felület**
+  - Világos/sötét mód
+  - Üvegkártyás dizájn (glassmorphism)
+  - Skeleton betöltési animáció
+  - Morph animáció a keresés gombon
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technológiai háttér
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Next.js 14 App Router**
+- **TypeScript**
+- **Tailwind CSS**
+- **Heroicons**
+- **MNB XLSX adatfeldolgozás** (`xlsx` könyvtár segítségével)
 
-## Learn More
+## Használat
 
-To learn more about Next.js, take a look at the following resources:
+1. Nyisd meg az alkalmazást.
+2. Írd be a bankszámlaszám első 8 számjegyét (pl. `117-7301-4`).
+3. Kattints a **Keresés** gombra vagy nyomd meg az Enter-t.
+4. Megjelennek a bank adatai és a kapcsolódó információk.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Forrás
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Magyar Nemzeti Bank – [Szűkített hitelesítő tábla](https://www.mnb.hu/)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
