@@ -51,4 +51,4 @@ naprakészen vannak betöltve.
 Képek:
 ![Bankszámlaszám kereső – főoldal](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/01.jpeg)
 ![Bankszámlaszám kereső találati oldala](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/02.jpeg)
-![Bankszámlaszám kereső cikkajánlóval](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/02.jpeg)
+![Bankszámlaszám kereső cikkajánlóval](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/03.jpeg)
