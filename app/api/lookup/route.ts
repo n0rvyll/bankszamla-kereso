@@ -251,7 +251,7 @@ export async function GET(req: NextRequest) {
       { status: 200 }
     );
   } catch (e: any) {
-    // **Robusztus hibaág** – mindig adunk lastUpdated-et
+  
     return NextResponse.json(
       {
         found: false,

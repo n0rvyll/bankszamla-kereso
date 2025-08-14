@@ -211,8 +211,8 @@ export default function HomePage() {
           <p className="mt-4 text-sm text-red-600 dark:text-slate-300">{res.error}</p>
         )}
         {res?.lastUpdated && (
-  <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-    Adatok frissítve: {formatHu(res.lastUpdated)}
+  <p className="mt-3 text-xs text-slate-500 dark:text-slate-400 text-center">
+    <i>Forrásadatok utoljára frissítve: {formatHu(res.lastUpdated)}</i>
   </p>
 )}
       </section>
