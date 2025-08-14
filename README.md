@@ -1,8 +1,5 @@
 # Bankszámlaszám kereső – MNB adatokkal
 
-![Bankszámlaszám kereső – főoldal](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/01.jpeg)
-![Bankszámlaszám kereső találati oldala](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/02.jpeg)
-
 Ez az alkalmazás lehetővé teszi, hogy a **bankszámlaszám első 8 számjegye** alapján
 megtudd, melyik banknál és melyik fióknál vezetik a számlát.  
 Az adatok a **Magyar Nemzeti Bank (MNB) szűkített hitelesítő táblájából** származnak, és
@@ -22,10 +19,11 @@ naprakészen vannak betöltve.
 - 💡 **Részleges találatok (javaslatok)** – Ha nincs pontos egyezés, a bankkód alapján felajánl hasonló fiókokat.
 - 📆 **Utolsó frissítés ideje** – Minden keresésnél látod, mikor frissültek az adatok.
 - 📱 **Reszponzív és modern felület**
-  - Világos/sötét mód
   - Üvegkártyás dizájn (glassmorphism)
   - Skeleton betöltési animáció
   - Morph animáció a keresés gombon
+- 💰 **Elhelyezhető AdSense hirdetési kód**
+  - AdUnit.tsx oldalon helyezheted el a saját AdSense adataidat (ca-pub-XXXXXXXXXXXXXXXX)
 
 ## Technológiai háttér
 
@@ -44,6 +42,8 @@ naprakészen vannak betöltve.
 
 ## Forrás
 
-- Magyar Nemzeti Bank – [Szűkített hitelesítő tábla](https://www.mnb.hu/)
+- Magyar Nemzeti Bank – [Szűkített hitelesítő tábla](https://www.mnb.hu/penzforgalom/a-hazai-penzforgalmi-infrastruktura/hitelesito-tabla)
 
----
+Képek:
+![Bankszámlaszám kereső – főoldal](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/01.jpeg)
+![Bankszámlaszám kereső találati oldala](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/02.jpeg)
