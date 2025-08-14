@@ -1,7 +1,7 @@
 # Bankszámlaszám kereső – MNB adatokkal
 
-![Bankszámlaszám kereső – főoldal](readme/01.jpg)
-![Bankszámlaszám kereső találati oldala](readme/02.jpg)
+![Bankszámlaszám kereső – főoldal](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/01.jpeg)
+![Bankszámlaszám kereső találati oldala](https://github.com/n0rvyll/bankszamla-kereso/blob/main/readme/02.jpeg)
 
 Ez az alkalmazás lehetővé teszi, hogy a **bankszámlaszám első 8 számjegye** alapján
 megtudd, melyik banknál és melyik fióknál vezetik a számlát.  
