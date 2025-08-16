@@ -21,6 +21,7 @@ export default function AdUnit() {
       data-ad-slot="8698339328"
       data-ad-format="auto"
       data-full-width-responsive="true"
+      data-adtest="on" // 👉 TESZT HIRDETÉS BEKAPCSOLVA
       ref={ref}
     />
     </div>

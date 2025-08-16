@@ -62,6 +62,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content="#4f46e5" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9221186825330437"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
         {/* JSON-LD: WebSite + SearchAction */}
