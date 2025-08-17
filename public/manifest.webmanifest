@@ -1,11 +1,11 @@
 {
-  "name": "Bankszámlaszám kereső – MNB adatokkal",
-  "short_name": "Bankszámlakereső",
+  "name": "Bankszámlaszám kereső",
+  "short_name": "Bankkereső",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4f46e5",
-  "description": "A bankszámlaszám első 8 számjegye alapján megmondjuk a számlavezető bankot és fiókot. Forrás: MNB.",
+  "description": "A bankszámlaszám első 8 számjegye alapján azonosítjuk a számlavezető bankot és fiókot (MNB adatok alapján).",
   "icons": [
     {
       "src": "/icons/icon-192.png",

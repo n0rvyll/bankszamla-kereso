@@ -1,35 +1,54 @@
 import { NextResponse } from "next/server";
 import * as XLSX from "xlsx";
 
-const SHT_URL = process.env.SHT_URL || "https://www.mnb.hu/letoltes/sht.xlsx";
-
-export async function GET() {
+/**
+ * Egy feltöltött Excel-ből előnézet: sheet-ek neve, sorok száma,
+ * fejléc (első sor), nyers első 5 sor. NINCS 'any'.
+ */
+export async function POST(req: Request) {
   try {
-    const res = await fetch(SHT_URL, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Letöltési hiba: ${res.status}`);
-    const buf = await res.arrayBuffer();
-    const wb = XLSX.read(buf, { type: "array" });
+    const formData = await req.formData();
+    const file = formData.get("file") as File | null;
+    if (!file) {
+      return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
+    }
 
-    const sheets = wb.SheetNames;
-    const preview: any[] = [];
+    const buf = Buffer.from(await file.arrayBuffer());
+    const wb = XLSX.read(buf, { type: "buffer" });
 
-    for (const name of sheets) {
-      const sheet = wb.Sheets[name];
-      const json = XLSX.utils.sheet_to_json<Record<string, any>>(sheet, { defval: "" });
-      const headers = json.length ? Object.keys(json[0]) : [];
+    const preview: Array<{
+      sheet: string;
+      jsonRows: number;
+      headers: string[];
+      rawFirstRows: unknown[][];
+    }> = [];
 
-      // header:1 (nyers mátrix) első 5 sor
-      const raw = XLSX.utils.sheet_to_json<any[]>(sheet, { header: 1, defval: "" }) as any[][];
+    for (const sheetName of wb.SheetNames) {
+      const sheet = wb.Sheets[sheetName];
+      if (!sheet) continue;
+
+      // FEJLÉCES (MÁTRIX) MÓD: unknown[][]
+      const table = XLSX.utils.sheet_to_json<unknown[]>(sheet, {
+        header: 1,
+        defval: "",
+      }) as unknown[][];
+
+      const headersRow: unknown[] = table[0] ?? [];
+      const headers = headersRow.map((v) => String(v ?? ""));
+
       preview.push({
-        sheet: name,
-        jsonRows: json.length,
+        sheet: sheetName,
+        jsonRows: table.length,
         headers,
-        rawFirstRows: raw.slice(0, 5),
+        rawFirstRows: table.slice(0, 5),
       });
     }
 
-    return NextResponse.json({ sheets, preview });
-  } catch (e: any) {
-    return NextResponse.json({ error: e.message ?? "Ismeretlen hiba" }, { status: 500 });
+    return NextResponse.json({ preview });
+  } catch (e: unknown) {
+    return NextResponse.json(
+      { error: (e as Error)?.message ?? "Ismeretlen hiba" },
+      { status: 500 }
+    );
   }
 }

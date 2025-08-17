@@ -2,7 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
 
-const siteUrl = "https://példa.hu"; // ← IDE ÍRD A SAJÁT DOMAINED!
+const siteUrl = "https://sajatdomain.hu";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -10,22 +10,15 @@ export const metadata: Metadata = {
     default: "Bankszámlaszám kereső – MNB adatokkal",
     template: "%s | Bankszámlaszám kereső",
   },
+  // 🔑 Ez a legfontosabb a Lighthouse miatt
   description:
-    "A bankszámlaszám első 8 számjegye alapján megmondjuk a számlavezető bankot és fiókot. Forrás: MNB szűkített hitelesítő tábla.",
-  keywords: [
-    "bankszámlaszám kereső",
-    "bankkód",
-    "fiókkód",
-    "MNB",
-    "BIC",
-    "SWIFT",
-    "számlaszám első 8 számjegy",
-  ],
-  authors: [{ name: "Bankszámlaszám kereső" }],
-  creator: "Bankszámlaszám kereső",
-  publisher: "Bankszámlaszám kereső",
+    "Bankszámlaszám kereső: az első 8 számjegy alapján megtudhatod, melyik bank és fiók vezeti a számlát. Forrás: MNB hivatalos adatok.",
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
     type: "website",
@@ -34,29 +27,23 @@ export const metadata: Metadata = {
     siteName: "Bankszámlaszám kereső",
     title: "Bankszámlaszám kereső – MNB adatokkal",
     description:
-      "Add meg az első 8 számjegyet, és kiírjuk a bankot, fiókot és BIC-et. Forrás: MNB.",
+      "Keresd meg könnyen a bankodat a számlaszám első 8 számjegye alapján. Forrás: MNB.",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bankszámlaszám kereső – MNB adatokkal",
     description:
-      "A számlaszám első 8 számjegye alapján bank és fiók azonosítás.",
+      "Gyors bank- és fiókazonosítás számlaszám alapján. Forrás: MNB.",
     images: ["/opengraph-image"],
-  },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
-  category: "finance",
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="hu">
       <head>
