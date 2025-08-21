@@ -16,7 +16,7 @@ type FeedItem = {
 export async function GET() {
   try {
     const parser = new Parser<unknown, FeedItem>();
-    const feed = await parser.parseURL("https://telex.hu/rss/");
+    const feed = await parser.parseURL("https://hu.ign.com/feed.xml");
 
     const items = feed.items.map((i) => {
       const imageUrl =

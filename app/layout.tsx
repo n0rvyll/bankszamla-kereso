@@ -49,6 +49,10 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <meta name="theme-color" content="#4f46e5" />
+        <meta
+          name="google-site-verification"
+          content="O2YG87Y4PpWpdBFjAlFE-zq32yZwE0tMPPJOf7fMfx8"
+        />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9221186825330437"
